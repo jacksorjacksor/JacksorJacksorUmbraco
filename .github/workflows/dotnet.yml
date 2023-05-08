@@ -33,7 +33,7 @@ jobs:
       uses: actions/upload-artifact@v3.1.2
       with:
         name: websitePublish
-        path: JacksorJacksorUmbraco/website/**  
+        path: /home/runner/work/JacksorJacksorUmbraco/JacksorJacksorUmbraco/website/**  
         if-no-files-found: error
       
     
