@@ -10,10 +10,9 @@ on:
     branches: [ "master" ]
 
 jobs:
-  build:
-
+ build:
     runs-on: ubuntu-latest
-
+ 
     steps:
     - uses: actions/checkout@v3
     - name: Setup .NET
@@ -35,6 +34,10 @@ jobs:
         name: websitePublish
         path: /home/runner/work/JacksorJacksorUmbraco/JacksorJacksorUmbraco/website/**  
         if-no-files-found: error
+        
+ deploy_to_umbHost:
+  runs-on: ubuntu-latest
+  steps:
     - name: Deploy to UmbHost
       uses: UmbHost/umbhost-web-deploy@v1.0.1
       with:
