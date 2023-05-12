@@ -28,11 +28,11 @@ jobs:
 
         - name: Restore Packages
           run: nuget restore ${{env.SolutionName}}
-          
-        - name: App Settings Variable Substitution
+            
+        - name: Replace variables
           uses: microsoft/variable-substitution@v1
           with:
-            files: '**/appsettings.Production.json'
+            files: 'JacksorJacksorUmbraco/appsettings.Production.json'
           env:
             ConnectionStrings.umbracoDbDSN: ${{ secrets.CONNECTION_STRING }}$
             
