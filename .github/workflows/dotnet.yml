@@ -17,12 +17,19 @@ jobs:
         - name: Checkout
           uses: actions/checkout@v3.0.0
         
-        - name: Replace tokens
-          uses: cschleiden/replace-tokens@v1.2
+#         - name: Replace tokens
+#           uses: cschleiden/replace-tokens@v1.2
+#           with:
+#             files: 'application.Production.json'
+#           env:
+#             CONNECTION_STRING: ${{ secrets.CONNECTION_STRING }}$
+#substitute production appsettings entries to appsettings json file
+        - name: App Settings Variable Substitution
+          uses: microsoft/variable-substitution@v1
           with:
-            files: 'application.Production.json'
+            files: 'appsettings.Production.json'
           env:
-            CONNECTION_STRING: ${{ secrets.CONNECTION_STRING }}$
+            ConnectionStrings.umbracoDbDSN: ${{ CONNECTION_STRING }}$
 
         - name: Setup MSBuild
           uses: microsoft/setup-msbuild@v1
