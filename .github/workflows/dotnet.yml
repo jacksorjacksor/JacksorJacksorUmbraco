@@ -46,16 +46,24 @@ jobs:
      
 
 
-  #deploy:
-  #  runs-on: windows-latest
-  #  needs: build
-  #  steps:
-  #      - name: Deploy to UmbHost
-  #        uses: UmbHost/umbhost-web-deploy@v1.0.1
-  #        with:
-  #          website-name: ${{ secrets.WEBSITE_NAME }}
-  #          server-computer-name: ${{ secrets.SERVER_COMPUTER_NAME }}
-  #          server-username: ${{ secrets.USERNAME }}
-  #          server-password: ${{ secrets.PASSWORD }}
-  #          source-path: '_build'
-  #          source-fileName: JacksorJacksorUmbraco.zip
+  deploy:
+    runs-on: windows-latest
+    needs: build
+    steps:
+        - name: Download artifact from build job
+          uses: actions/download-artifact@v2
+          id: download
+          with:
+            name: .net-app   
+            path: "JacksorJacksorUmbraco/_build"
+
+
+        - name: Deploy to UmbHost
+          uses: UmbHost/umbhost-web-deploy@v1.0.1
+          with:
+            website-name: ${{ secrets.WEBSITE_NAME }}
+            server-computer-name: ${{ secrets.SERVER_COMPUTER_NAME }}
+            server-username: ${{ secrets.USERNAME }}
+            server-password: ${{ secrets.PASSWORD }}
+            source-path: echo ${{steps.download.outputs.download-path}}
+            source-fileName: JacksorJacksorUmbraco.zip
