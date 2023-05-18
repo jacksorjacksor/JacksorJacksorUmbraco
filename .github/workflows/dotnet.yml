@@ -38,17 +38,6 @@ jobs:
           run: | 
             msbuild.exe ${{env.SolutionName}} /nologo /nr:false /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:DeleteExistingFiles=True /p:SkipInvalidConfigurations=true /p:IncludeSetAclProviderOnDestination=False /p:AutoParameterizationWebConfigConnectionStrings=False /p:platform="${{env.BuildPlatform}}" /p:configuration="${{env.BuildConfiguration}}" /p:PackageLocation="../_build" /p:EnvironmentName=Production
 
-        - name: Upload artifact for deployment job
-          uses: actions/upload-artifact@v3
-          with:
-            path: ${{env.SolutionName}}/_build
-
-
-        - name: Download artifact from build job
-          uses: actions/download-artifact@v2
-          with:
-            path: ${{env.SolutionName}}/_build
-            
         - name: Deploy to UmbHost
           uses: UmbHost/umbhost-web-deploy@v1.0.1
           with:
@@ -56,5 +45,5 @@ jobs:
             server-computer-name: ${{ secrets.SERVER_COMPUTER_NAME }}
             server-username: ${{ secrets.USERNAME }}
             server-password: ${{ secrets.PASSWORD }}
-            source-path: ${{env.SolutionName}}/_build
-            source-fileName: artifact.zip
+            source-path: '_build'
+            source-fileName: JacksorJacksorUmbraco.zip
