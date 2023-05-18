@@ -82,5 +82,5 @@ jobs:
             server-computer-name: ${{ secrets.SERVER_COMPUTER_NAME }}
             server-username: ${{ secrets.USERNAME }}
             server-password: ${{ secrets.PASSWORD }}
-            source-path: 'JacksorJacksorUmbraco/_build'
+            source-path: '_build'
             source-fileName: JacksorJacksorUmbraco.zip
