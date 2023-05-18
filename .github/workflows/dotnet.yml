@@ -50,14 +50,14 @@ jobs:
           run: dotnet build --configuration Release
 
         - name: dotnet publish
-          run: dotnet publish -c Release -o JacksorJacksorUmbraco/_build
+          run: dotnet publish -c Release -o _build
 
 
         - name: Upload artifact for deployemnt
           uses: actions/upload-artifact@v3
           with:
             name: JacksorJacksorUmbraco.zip
-            path: "JacksorJacksorUmbraco/_build"
+            path: _build
      
 
 
@@ -70,7 +70,7 @@ jobs:
           id: download
           with:
             name: JacksorJacksorUmbraco.zip  
-            path: "JacksorJacksorUmbraco/_build"
+            path: _build
 
         - name: Setup MSBuild
           uses: microsoft/setup-msbuild@v1
