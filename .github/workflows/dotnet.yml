@@ -42,7 +42,7 @@ jobs:
           uses: actions/upload-artifact@v3
           with:
             name: .net-app
-            path: "JacksorJacksorUmbraco/JacksorJacksorUmbraco/_build"
+            path: "file:///D:/a/JacksorJacksorUmbraco/JacksorJacksorUmbraco/_build"
      
 
 
