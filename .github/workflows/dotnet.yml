@@ -42,20 +42,20 @@ jobs:
           uses: actions/upload-artifact@v2
           with:
             name: .net-app
-            path: "../_build"
+            path: "JacksorJacksorUmbraco/_build"
      
 
 
-  deploy:
-    runs-on: windows-latest
-    needs: build
-    steps:
-        - name: Deploy to UmbHost
-          uses: UmbHost/umbhost-web-deploy@v1.0.1
-          with:
-            website-name: ${{ secrets.WEBSITE_NAME }}
-            server-computer-name: ${{ secrets.SERVER_COMPUTER_NAME }}
-            server-username: ${{ secrets.USERNAME }}
-            server-password: ${{ secrets.PASSWORD }}
-            source-path: '_build'
-            source-fileName: JacksorJacksorUmbraco.zip
+  #deploy:
+  #  runs-on: windows-latest
+  #  needs: build
+  #  steps:
+  #      - name: Deploy to UmbHost
+  #        uses: UmbHost/umbhost-web-deploy@v1.0.1
+  #        with:
+  #          website-name: ${{ secrets.WEBSITE_NAME }}
+  #          server-computer-name: ${{ secrets.SERVER_COMPUTER_NAME }}
+  #          server-username: ${{ secrets.USERNAME }}
+  #          server-password: ${{ secrets.PASSWORD }}
+  #          source-path: '_build'
+  #          source-fileName: JacksorJacksorUmbraco.zip
