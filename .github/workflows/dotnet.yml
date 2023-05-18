@@ -39,31 +39,31 @@ jobs:
             msbuild.exe ${{env.SolutionName}} /nologo /nr:false /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:DeleteExistingFiles=True /p:SkipInvalidConfigurations=true /p:IncludeSetAclProviderOnDestination=False /p:AutoParameterizationWebConfigConnectionStrings=False /p:platform="${{env.BuildPlatform}}" /p:configuration="${{env.BuildConfiguration}}" /p:PackageLocation="../_build" /p:EnvironmentName=Production
 
         - name: Upload artifact for deployemnt
-          uses: actions/upload-artifact@v2
+          uses: actions/upload-artifact@v3
           with:
             name: .net-app
-            path: "JacksorJacksorUmbraco/_build"
+            path: "JacksorJacksorUmbraco/JacksorJacksorUmbraco/_build"
      
 
 
-  deploy:
-    runs-on: windows-latest
-    needs: build
-    steps:
-        - name: Download artifact from build job
-          uses: actions/download-artifact@v3
-          id: download
-          with:
-            name: .net-app   
-            path: "JacksorJacksorUmbraco/_build"
+  #deploy:
+  #  runs-on: windows-latest
+  #  needs: build
+  #  steps:
+  #      - name: Download artifact from build job
+  #        uses: actions/download-artifact@v3
+  #        id: download
+  #        with:
+  #          name: .net-app   
+  #          path: "JacksorJacksorUmbraco/_build"
 
 
-        - name: Deploy to UmbHost
-          uses: UmbHost/umbhost-web-deploy@v1.0.1
-          with:
-            website-name: ${{ secrets.WEBSITE_NAME }}
-            server-computer-name: ${{ secrets.SERVER_COMPUTER_NAME }}
-            server-username: ${{ secrets.USERNAME }}
-            server-password: ${{ secrets.PASSWORD }}
-            source-path: echo ${{steps.download.outputs.download-path}}
-            source-fileName: JacksorJacksorUmbraco.zip
+  #      - name: Deploy to UmbHost
+  #        uses: UmbHost/umbhost-web-deploy@v1.0.1
+  #        with:
+  #          website-name: ${{ secrets.WEBSITE_NAME }}
+  #          server-computer-name: ${{ secrets.SERVER_COMPUTER_NAME }}
+  #          server-username: ${{ secrets.USERNAME }}
+  #          server-password: ${{ secrets.PASSWORD }}
+  #          source-path: echo ${{steps.download.outputs.download-path}}
+  #          source-fileName: JacksorJacksorUmbraco.zip
