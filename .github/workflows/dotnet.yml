@@ -1,7 +1,6 @@
 name: Build, publish and deploy project to UmbHost
 
 on:
-  workflow_dispatch:
   push:
     branches: [ master ]
 env:
@@ -12,7 +11,7 @@ env:
 jobs:
   build:
     runs-on: windows-latest
-    steps:      
+    steps:
         - name: Checkout
           uses: actions/checkout@v3.0.0
         
@@ -38,36 +37,8 @@ jobs:
         - name: Build Solution
           run: | 
             msbuild.exe ${{env.SolutionName}} /nologo /nr:false /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:DeleteExistingFiles=True /p:SkipInvalidConfigurations=true /p:IncludeSetAclProviderOnDestination=False /p:AutoParameterizationWebConfigConnectionStrings=False /p:platform="${{env.BuildPlatform}}" /p:configuration="${{env.BuildConfiguration}}" /p:PackageLocation="../_build" /p:EnvironmentName=Production
-
-
-  #      - name: Upload artifact for deployemnt
-  #        uses: actions/upload-artifact@v3
-  #        with:
-  #          name: JacksorJacksorUmbraco.zip
-  #          path: _build
-     
-
-
-  #deploy:
-  #  runs-on: windows-latest
-  #  needs: build
-  #  steps:
-  #      - name: Setup MSBuild
-  #        uses: microsoft/setup-msbuild@v1
-
-  #      - name: Download artifact from build job
-  #        uses: actions/download-artifact@v3
-  #        id: download
-  #        with:
-  #          name: JacksorJacksorUmbraco.zip  
-  #          path: _build
-
-        - name: Deploy to UmbHost
-          uses: UmbHost/umbhost-web-deploy@v1.0.1
+        - name: Upload artifact for deployemnt
+          uses: actions/upload-artifact@v2
           with:
-            website-name: ${{ secrets.WEBSITE_NAME }}
-            server-computer-name: ${{ secrets.SERVER_COMPUTER_NAME }}
-            server-username: ${{ secrets.USERNAME }}
-            server-password: ${{ secrets.PASSWORD }}
-            source-path: '_build'
-            source-fileName: JacksorJacksorUmbraco.zip
+            name: .net-app
+            path: "JacksorJacksorUmbraco/_build"
