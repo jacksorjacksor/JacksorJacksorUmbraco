@@ -1,0 +1,11 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.HomePage>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = null;
+}
+<h1>@Model.Value("pageTitle")</h1>
+
+<div>@Model.Value("bodyText")</div>
+
+<footer>@Model.Value("footerText")</footer>
