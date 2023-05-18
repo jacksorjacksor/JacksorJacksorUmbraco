@@ -2,8 +2,8 @@ name: Build, publish and deploy project to UmbHost
 
 on:
   workflow_dispatch:
-  # push:
-    # branches: [ master ]
+  push:
+    branches: [ master ]
 env:
     SolutionName: ${{ secrets.SOLUTION_NAME }}
     BuildPlatform: Any CPU
@@ -82,5 +82,5 @@ jobs:
             server-computer-name: ${{ secrets.SERVER_COMPUTER_NAME }}
             server-username: ${{ secrets.USERNAME }}
             server-password: ${{ secrets.PASSWORD }}
-            source-path: ${{steps.download.outputs.download-path}}
+            source-path: '_build'
             source-fileName: JacksorJacksorUmbraco.zip
