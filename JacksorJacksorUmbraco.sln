@@ -5,8 +5,6 @@ VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JacksorJacksorUmbraco", "JacksorJacksorUmbraco\JacksorJacksorUmbraco.csproj", "{A3A166CA-6746-4398-AB6A-D7C7D32F0DD5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Umbraco.Models", "Umbraco.Models\Umbraco.Models.csproj", "{F6018E1D-C2F7-4059-B02A-4FDD0EB4790F}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{A3A166CA-6746-4398-AB6A-D7C7D32F0DD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3A166CA-6746-4398-AB6A-D7C7D32F0DD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3A166CA-6746-4398-AB6A-D7C7D32F0DD5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F6018E1D-C2F7-4059-B02A-4FDD0EB4790F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F6018E1D-C2F7-4059-B02A-4FDD0EB4790F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F6018E1D-C2F7-4059-B02A-4FDD0EB4790F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F6018E1D-C2F7-4059-B02A-4FDD0EB4790F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
