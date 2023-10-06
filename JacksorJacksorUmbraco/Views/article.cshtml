@@ -2,22 +2,11 @@
 
 @using Clean.Core.Models.ViewModels
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels
-@using Umbraco.Cms.Core
-@using Clean.Core.Extensions
 
-@{
-    Layout = "master.cshtml";
-    var author = Model.GetAuthor(Umbraco);
-}
+@{ Layout = "master.cshtml"; }
 
-@await Html.PartialAsync("~/Views/Partials/pageHeader.cshtml", new PageHeaderViewModel(Model.Name, Model.Title, Model.Subtitle, Model.MainImage, author.Name, Model.ArticleDate, Model.Categories))
+@await Html.PartialAsync("~/Views/Partials/pageHeader.cshtml", new PageHeaderViewModel(Model.Name, Model.Title, Model.Subtitle, Model.MainImage, Model.AuthorName, Model.ArticleDate))
 
 <article>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-md-10 mx-auto">
-                @Html.GetBlockListHtml(Model.ContentRows)
-            </div>
-        </div>
-    </div>
+    @Html.GetGridHtml(Model, "mainContent", "Clean")
 </article>
