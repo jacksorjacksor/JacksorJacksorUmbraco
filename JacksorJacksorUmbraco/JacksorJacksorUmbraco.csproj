@@ -4,53 +4,14 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-  <ItemGroup>
-    <Content Include="wwwroot\media\0iqcbgfi\march-2023.jpg" />
-    <Content Include="wwwroot\media\bgapfo4f\phone-pen-binder.jpg" />
-    <Content Include="wwwroot\media\cpth2fx5\community-front-row.jpg" />
-    <Content Include="wwwroot\media\ekpdgscq\triangle-table-chairs.jpg" />
-    <Content Include="wwwroot\media\f01jqvmq\bluetooth-white-keyboard.jpg" />
-    <Content Include="wwwroot\media\fkadbwt3\umbracoffee-codegarden.jpg" />
-    <Content Include="wwwroot\media\gsnjjwq4\authors.jpg" />
-    <Content Include="wwwroot\media\kfrm2wll\diary.jpg" />
-    <Content Include="wwwroot\media\l0vicqwg\24-days-people-at-codegarden.jpg" />
-    <Content Include="wwwroot\media\lclf3ry1\tutorials.jpg" />
-    <Content Include="wwwroot\media\ljahypfa\chairs-lamps.jpg" />
-    <Content Include="wwwroot\media\n43dfw3o\first-timers-at-codegarden.jpg" />
-    <Content Include="wwwroot\media\oo4jm5ni\candid-contributions.jpg" />
-    <Content Include="wwwroot\media\pcmdjq3h\package-manifest.jpg" />
-    <Content Include="wwwroot\media\q4xbztkq\profile-pic-2023.png" />
-    <Content Include="wwwroot\media\qo0ccbnw\codegarden-keynote.jpg" />
-    <Content Include="wwwroot\media\tu4lsswi\podcast-coffee.jpg" />
-    <Content Include="wwwroot\media\uv2bljv1\meetup-organizers-at-codegarden.jpg" />
-    <Content Include="wwwroot\media\uxcbvbvf\desktop-notebook-glasses.jpg" />
-    <Content Include="wwwroot\media\wvadrxjb\front-row-audience-smiles.jpg" />
-    <Content Include="wwwroot\media\xldnfcwl\friendly-chair.jpg" />
-    <Content Include="wwwroot\media\xu5ome2c\say-cheese.jpg" />
-    <Content Include="wwwroot\media\z4ocpnjy\skrift-at-codegarden.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="wwwroot\media\0s1i3qfx\twitter.svg" />
-    <None Include="wwwroot\media\4esfh0cz\square-twitter.svg" />
-    <None Include="wwwroot\media\cyybnb0n\discord.svg" />
-    <None Include="wwwroot\media\iuln540y\paypal.svg" />
-    <None Include="wwwroot\media\mbdjmcj4\github.svg" />
-    <None Include="wwwroot\media\pwtlngdw\cc-paypal.svg" />
-    <None Include="wwwroot\media\qwtcc0ic\github-alt.svg" />
-    <None Include="wwwroot\media\tgcltm3u\square-github.svg" />
-    <None Include="wwwroot\media\tj5lysa0\share-nodes.svg" />
-    <None Include="wwwroot\media\ug3ds3ve\umbraco.svg" />
-  </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="clean" Version="2.1.6" />
-    <PackageReference Include="Umbraco.Cms" Version="10.4.2" />
+    <PackageReference Include="Umbraco.Cms" Version="10.7.0" />
   </ItemGroup>
 
   <ItemGroup>
     <!-- Opt-in to app-local ICU to ensure consistent globalization APIs across different platforms -->
     <PackageReference Include="Microsoft.ICU.ICU4C.Runtime" Version="68.2.0.9" />
-    <PackageReference Include="uSync" Version="10.6.0" />
     <RuntimeHostConfigurationOption Include="System.Globalization.AppLocalIcu" Value="68.2.0.9" Condition="$(RuntimeIdentifier.StartsWith('linux')) or $(RuntimeIdentifier.StartsWith('win')) or ('$(RuntimeIdentifier)' == '' and !$([MSBuild]::IsOSPlatform('osx')))" />
   </ItemGroup>
 
@@ -64,5 +25,5 @@
     <RazorCompileOnBuild>false</RazorCompileOnBuild>
     <RazorCompileOnPublish>false</RazorCompileOnPublish>
   </PropertyGroup>
-
+  
 </Project>
