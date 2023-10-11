@@ -1,3 +1,4 @@
+using XStatic.Core.App;
 namespace JacksorJacksorUmbraco
 {
     public class Startup
@@ -34,6 +35,8 @@ namespace JacksorJacksorUmbraco
                 .AddWebsite()
                 .AddComposers()
                 .Build();
+
+            services.AddXStatic().Automatic().Build();
         }
 
         /// <summary>
