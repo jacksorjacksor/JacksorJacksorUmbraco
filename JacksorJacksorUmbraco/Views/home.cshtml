@@ -6,16 +6,15 @@
 @{
     Layout = "master.cshtml";
     var imgUrl = Model.MainImage.GetCropUrl("heroImage");
-    var thing = Model.MainImage.LocalCrops.FocalPoint?.Top ?? (decimal) 0.5 ;
 }
 
-@*@await Html.PartialAsync("~/Views/Partials/pageHeader.cshtml", new PageHeaderViewModel(Model.Name, Model.Title, Model.Subtitle, Model.MainImage))*@
+@await Html.PartialAsync("~/Views/Partials/pageHeader.cshtml", new PageHeaderViewModel(Model.Name, Model.Title, Model.Subtitle, Model.MainImage))
 
-<div class="bg-image" 
+@*<div class="bg-image" 
      style="background-image: url('@imgUrl'); 
             height: 100vh; 
-            background-position: @(Model.MainImage.LocalCrops.FocalPoint?.Top ?? (decimal)0.5 * 100)% @(Model.MainImage.LocalCrops.FocalPoint?.Left ??(decimal)0.5 * 100)%">
-</div>
+            background-position: @(Model.MainImage.LocalCrops.FocalPoint?.Top ?? 0.5m * 100)% @(Model.MainImage.LocalCrops.FocalPoint?.Left ?? 0.5m * 100)%">
+</div>*@
 
 
 @if (Model.ContentRows != null)

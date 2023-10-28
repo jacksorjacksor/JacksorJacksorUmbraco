@@ -20,13 +20,12 @@
     var pageOfArticles = allArticles.Skip((pageNumber - 1) * pageSize).Take(pageSize);
     var totalItemCount = allArticles.Count();
     var pageCount = totalItemCount > 0 ? Math.Ceiling((double)totalItemCount / pageSize) : 1;
-}
+    }
 
 <div class="row clearfix @(spacingClasses)">
     <div class="col-md-12 column">
         @foreach (var article in pageOfArticles)
         {
-            var author = article.GetAuthor(Umbraco);
             bool.TryParse(article.Value<string>("showFullArticleOnListPage", fallback: Fallback.ToAncestors), out var showFullArticleOnListPage);
 
             <div class="post-preview">
@@ -41,8 +40,8 @@
                 </a>
                 <p class="post-meta @(showFullArticleOnListPage ? "mb-0" : "")">
                     @Umbraco.GetDictionaryValue("Article.Posted")
-                    @Umbraco.GetDictionaryValue("Article.By")@Html.Raw("&nbsp;")@author.Name
-                    @Umbraco.GetDictionaryValue("Article.On") @article.ArticleDate.ToString("MMMM dd, yyyy")
+                    @Umbraco.GetDictionaryValue("Article.By")@Html.Raw("&nbsp;")Richard Jackson
+                    @Umbraco.GetDictionaryValue("Article.On")@Html.Raw("&nbsp;")@article.ArticleDate.ToString("MMMM dd, yyyy")
                 </p>
                 @if (showFullArticleOnListPage && article.Categories != null && article.Categories.Any())
                 {
